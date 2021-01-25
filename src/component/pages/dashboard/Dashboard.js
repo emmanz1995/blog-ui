@@ -1,31 +1,28 @@
 import React, {Component} from 'react'
 import Button from 'react-bootstrap/Button';
-import {history} from "../../History";
+import { history } from "../../History";
 import Navbar from '../../layout/navbar/Navbar';
+import { MainContainer } from './DashboardStyled'
 
 class Dashboard extends Component {
     constructor(props) {
         super(props);
-        this.handlelogout = this.handlelogout.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             user: localStorage.getItem('username')
         }
     }
-    handlelogout = (evt) => {
+    handleSubmit = (evt) => {
         evt.preventDefault();
-        localStorage.removeItem('username');
-        localStorage.removeItem('token');
-        history.push("/");
+        //TODO handle submit post logic here
     }
     render() {
         return (
-            <div>
+            <MainContainer>
                 <Navbar />
                 <h1>We are Home!! {this.state.user}</h1>
-                <Button onClick={this.handlelogout}>
-                    Logout
-                </Button>
-            </div>
+                <Button onClick={this.handleSubmit}>Submit Post</Button>
+            </MainContainer>
         )
     }
 }

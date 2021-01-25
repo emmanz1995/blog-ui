@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Navbar from '../../layout/navbar/Navbar';
 import { Container } from './LoginStyle';
 import SimplePasswordValidator from 'simple-react-validator';
 import axios from 'axios';
 import { history } from '../../History';
+import { Link } from 'react-router-dom'
 
 class Login extends Component {
     constructor(props) {
@@ -14,6 +14,7 @@ class Login extends Component {
             loading: false,
             userNiceName: '',
             userEmail: '',
+            error: ''
         }
         this.handleLogin = this.handleLogin.bind(this);
         this.onChange = this.onChange.bind(this);
@@ -46,7 +47,7 @@ class Login extends Component {
                 .then((success) => {
                     const user = (this.state.userNiceName) ? this.state.userNiceName: localStorage.getItem('username')
                     if(localStorage.getItem('username')) {
-                        history.push(`/home/${user}`);
+                        history.push(`/dashboard/${user}`);
                         alert('Im coming dashboard, Im coming dashboard!')
                     }
                 })
@@ -66,15 +67,25 @@ class Login extends Component {
         this.setState({[evt.target.name]:evt.target.value});
     }
     render() {
+        const { username, password } = this.state
         return (
             <div>
-                {/*<Navbar />*/}
                 <Container>
                     <form onClick={this.handleLogin}>
-                        <h2>Login</h2>
-                        <input className="input-username" type="text" placeholder="Your Username" name="username" onChange={this.onChange} value={this.state.username} /><br/>
-                        <input id="input-password" type="password" placeholder="Your Password" name="password" onChange={this.onChange} value={this.state.password} /><br/>
+                        <h2>Login <i className="fas fa-user-lock" /></h2>
+                        <div className="form-input">
+                            <i className="far fa-user" />
+                            <input className="input-username" type="text" placeholder="Your Username" name="username" onChange={this.onChange} value={username} />
+                        </div>
+                        {this.validator.message('username', username, 'required|username', {className: 'text-danger'})}<br/>
+                        <div className="form-input">
+                            <i className="fas fa-key" />
+                            <input id="input-password" type="password" placeholder="Your Password" name="password" onChange={this.onChange} value={password} />
+                        </div>
+                        {this.validator.message('password', password, 'required|password|min:6|max:20', {className: 'text-danger'})}<br/>
                         <button className="login-btn">Login</button>
+                        <br />
+                        <Link to="#" className="forg-link">Forgot Password or Username</Link>
                     </form>
                 </Container>
             </div>

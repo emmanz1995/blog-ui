@@ -13,9 +13,10 @@ export const Container = styled.div`
     //justify-content: center;
     padding: 15px;
     width: 400px;
-    height: 280px;
-    border: 1px solid #000000;
-    border-radius: 2px;
+    height: 380px;
+    //border: 1px solid #000000;
+    background-color: lightslategrey;
+    border-radius: 6px;
     .login-btn {
       border: none;
       border-radius: 4px;
@@ -23,19 +24,28 @@ export const Container = styled.div`
       padding: 10px;
       &:hover {
         background-color: lightskyblue;
+        transition: all 0.2s ease-out;
+        color: #ffffff;
       }
     }
     input {
       width: 100%;
-      height: 50px;
+      height: 40px;
+      margin: 4px;
+      padding: 0 10px;
+      border-radius: 50px;
+      border: none;
+      color: #000000;
     }
-    button {
-      border-radius: 4px;
-      background-color: #61dafb;
+    .form-input {
+      display: flex;
+      align-items: center;
+    }
+    .forg-link {
+      text-decoration: none!important;
+      color: #000000;
       &:hover {
-        background-color: lightskyblue;
-        transition: all 0.2s ease-out;
-        color: #ffffff;
+        color: white;
       }
     }
   }

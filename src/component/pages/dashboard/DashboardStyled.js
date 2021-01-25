@@ -3,5 +3,5 @@ import PexelsBackground from '../../Images/pexels-pixabay.jpg'
 
 export const MainContainer = styled.main`
   background: url(${PexelsBackground});
-  
+  height: 100vh;
 `;

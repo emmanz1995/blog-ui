@@ -2,26 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63aedb20-e4d0-4505-823e-7ed91b22dcbc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/blog-ui.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/History.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/Images/pexels-pixabay.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/layout/navbar/NavStyle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/layout/navbar/Navbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/pages/blog/AddNewPost.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/pages/blog/Blog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/pages/blog/Post.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/pages/blog/styling.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/pages/dashboard/Dashboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/pages/dashboard/DashboardStyled.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/pages/login/Login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/pages/login/LoginStyle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/component/PrivateRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/layout/navbar/NavStyle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/layout/navbar/NavStyle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/layout/navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/layout/navbar/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/pages/dashboard/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/dashboard/Dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/pages/dashboard/DashboardStyled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/dashboard/DashboardStyled.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/pages/login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/login/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/pages/login/LoginStyle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/login/LoginStyle.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +66,9 @@
       <workItem from="1611150194907" duration="99000" />
       <workItem from="1611396819339" duration="2653000" />
       <workItem from="1611431684815" duration="11066000" />
-      <workItem from="1611449859127" duration="68000" />
+      <workItem from="1611449859127" duration="1406000" />
+      <workItem from="1611451514850" duration="42000" />
+      <workItem from="1611491431465" duration="8436000" />
     </task>
     <servers />
   </component>
