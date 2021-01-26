@@ -1,14 +1,14 @@
 import React from 'react'
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import Login from './component/pages/login/Login';
-import Blog from './component/pages/blog/Blog';
+import Home from './component/pages/blog/Home';
 import Post from './component/pages/blog/Post';
 import AddNewPost from './component/pages/blog/AddNewPost';
 import Dashboard from "./component/pages/dashboard/Dashboard";
 import { PrivateRoute } from './component/PrivateRoute'
-import {withAlert} from 'react-alert'
-import {history} from "./component/History";
+import { withAlert } from 'react-alert'
+import { history } from "./component/History";
 
 class App extends React.Component {
     render() {
@@ -18,9 +18,9 @@ class App extends React.Component {
                     <Switch>
                         <Route exact path="/" component = {props => <Login {...props} alert={this.props.alert} />} />
                         <PrivateRoute path="/dashboard/:userName" component={Dashboard} />
-                        <Route path="/blog" component={Blog} />
+                        <Route path="/blog" component={Home} />
                         <Route path="/post/:id" component={Post} />
-                        <Route path="/addpost" component={AddNewPost} />
+                        {/*<Route path="/addpost" component={AddNewPost} />*/}
                     </Switch>
                 </Router>
             </div>

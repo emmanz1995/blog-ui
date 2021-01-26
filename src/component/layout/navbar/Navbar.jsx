@@ -22,8 +22,8 @@ class Navbar extends Component {
                 <NavbarBrand>Blog</NavbarBrand>
                 <StyledNavbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto" />
-                    <Nav.Link>Home</Nav.Link>
-                    <NavDropdown id="collapsible-nav-dropdown" title={this.props.user}>
+                    <Nav.Link className="nav-style">Home</Nav.Link>
+                    <NavDropdown id="collapsible-nav-dropdown" title={this.props.user} style={{color: 'white'}}>
                         <NavDropdown.Item onClick={this.handleLogout}>Logout</NavDropdown.Item>
                     </NavDropdown>
                 </StyledNavbar.Collapse>
