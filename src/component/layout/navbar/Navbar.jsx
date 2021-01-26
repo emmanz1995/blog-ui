@@ -6,9 +6,6 @@ import { history } from "../../History";
 class Navbar extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            user: localStorage.getItem('username')
-        }
         this.handleLogout = this.handleLogout.bind(this)
     }
 
@@ -26,7 +23,7 @@ class Navbar extends Component {
                 <StyledNavbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto" />
                     <Nav.Link>Home</Nav.Link>
-                    <NavDropdown id="collapsible-nav-dropdown" title={this.state.user}>
+                    <NavDropdown id="collapsible-nav-dropdown" title={this.props.user}>
                         <NavDropdown.Item onClick={this.handleLogout}>Logout</NavDropdown.Item>
                     </NavDropdown>
                 </StyledNavbar.Collapse>

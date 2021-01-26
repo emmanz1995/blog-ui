@@ -10,8 +10,7 @@ class Dashboard extends Component {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
-            user: localStorage.getItem('username'),
-            users: {}
+            user: localStorage.getItem('username')
         }
     }
     componentDidMount() {
@@ -23,12 +22,12 @@ class Dashboard extends Component {
                 authorization: `Bearer` + token
             }
         })
-            .then((data) =>{
-                const allUsers = data.data
+            .then((res) =>{
+                const allUsers = res.data
                 this.setState({
-                    data: allUsers,
+                    res: allUsers,
                 })
-                console.log('User: ', data)
+                console.log('User: ', res)
             }).catch(error => console.log(error))
     }
 
@@ -39,9 +38,9 @@ class Dashboard extends Component {
     render() {
         return (
             <MainContainer>
-                <Navbar />
+                <Navbar user={this.state.user} />
                 <h1>We are Home!! {this.state.user}</h1>
-                {/*<p>{this.state.data?.name}</p>*/}
+                <p>{this.state.res?.name}</p>
                 <Button onClick={this.handleSubmit}>Submit Post</Button>
             </MainContainer>
         )
