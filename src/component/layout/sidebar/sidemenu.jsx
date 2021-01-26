@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import sidebar from './style'
+import React, {Component} from 'react';
 
 class sidemenu extends Component {
     render() {
         return (
             <div>
-                
+
             </div>
         );
     }

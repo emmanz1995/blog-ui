@@ -48,7 +48,7 @@ class Login extends Component {
                     const user = (this.state.userNiceName) ? this.state.userNiceName: localStorage.getItem('username')
                     if(localStorage.getItem('username')) {
                         history.push(`/dashboard/${user}`);
-                        alert('Im coming dashboard, Im coming dashboard!')
+                        this.props.alert.success('Im coming dashboard, Im coming dashboard!')
                     }
                 })
                 .catch((error) =>{
@@ -57,6 +57,7 @@ class Login extends Component {
                         error: error.response.data.message,
                         loading: false
                     })
+                    this.props.alert.error('Your wrong mate go back, your not welcome here!')
             })
         } else {
             this.forceUpdate();
