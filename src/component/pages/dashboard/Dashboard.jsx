@@ -36,7 +36,7 @@ class Dashboard extends Component {
             <MainContainer>
                 <Navbar user={this.state.user} />
                 <BannerContainer>
-                    <p style={{textAlign: 'left', fontSize: '25px', margin: '5px'}}>Welcome home <b>{this.state.user}</b></p>
+                    <p style={{textAlign: 'left', fontSize: '25px', margin: '5px'}}>Welcome Back<b>{' '}{this.state.user}</b></p>
                     <br />
                     <SubNav>
                         <ul>

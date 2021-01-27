@@ -33,18 +33,18 @@ class DisplayPost extends Component {
             .catch((error) => console.log(error))
     }
     render() {
+        const { posts } = this.state
+        const postsDisplay = posts.map(post => (
+            <StyledCard key={post}>
+                <Card.Header>
+                    <h2>{post.title?.rendered}</h2>
+                </Card.Header>
+                <Card.Body><p>{post.content?.rendered}</p></Card.Body>
+            </StyledCard>
+        ))
         return(
             <MainContainer>
-                {this.state.posts.map((post, i) => {
-                    return(
-                        <StyledCard key={i}>
-                            <Card.Header>
-                                <h2>{post.title?.rendered}</h2>
-                            </Card.Header>
-                            <Card.Body><p>{post.content?.rendered}</p></Card.Body>
-                        </StyledCard>
-                    )
-                })}
+                {postsDisplay}
             </MainContainer>
         )
     }

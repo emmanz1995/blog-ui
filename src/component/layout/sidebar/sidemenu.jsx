@@ -1,13 +1,21 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+
+const StyledSideMenu = styled.div`
+    
+`
 
 class sidemenu extends Component {
     render() {
         return (
-            <div>
-
-            </div>
-        );
+            <StyledSideMenu>
+                <ul>
+                    <Link></Link>
+                </ul>
+            </StyledSideMenu>
+        )
     }
 }
 
-export default sidemenu;
+export default sidemenu
