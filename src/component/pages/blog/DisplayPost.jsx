@@ -10,7 +10,7 @@ const StyledCard = styled(Card)`
 
 const MainContainer = styled.div`
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 `
 
 class DisplayPost extends Component {
@@ -39,7 +39,9 @@ class DisplayPost extends Component {
                 <Card.Header>
                     <h2>{post.title?.rendered}</h2>
                 </Card.Header>
-                <Card.Body><p>{post.content?.rendered}</p></Card.Body>
+                <Card.Body>
+                    <p dangerouslySetInnerHTML={{ __html: post.content?.rendered }} />
+                </Card.Body>
             </StyledCard>
         ))
         return(

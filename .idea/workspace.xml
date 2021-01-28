@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63aedb20-e4d0-4505-823e-7ed91b22dcbc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/component/layout/CustomTextArea.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/layout/sidebar/sidemenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/layout/sidebar/sidemenu.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/layout/sidebar/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/layout/sidebar/style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/layout/CustomTextField.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/layout/CustomTextField.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/pages/blog/AddNewPost.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/blog/AddNewPost.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/pages/blog/DisplayPost.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/blog/DisplayPost.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/pages/dashboard/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/dashboard/Dashboard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/pages/dashboard/DashboardStyled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/dashboard/DashboardStyled.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/pages/login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/login/Login.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +79,9 @@
       <workItem from="1611565888943" duration="3994000" />
       <workItem from="1611610938137" duration="5903000" />
       <workItem from="1611665976627" duration="19362000" />
-      <workItem from="1611753180661" duration="2644000" />
+      <workItem from="1611753180661" duration="2983000" />
+      <workItem from="1611760263223" duration="1528000" />
+      <workItem from="1611830653648" duration="10264000" />
     </task>
     <servers />
   </component>

@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import Form from 'react-bootstrap/Form'
 
 export const StyledTextField = styled(Form)`
-  //width: 20%;
+  width: 100%;
+  margin: 0 5px;
 `
 
 class CustomTextField extends Component {
@@ -25,4 +26,10 @@ class CustomTextField extends Component {
     }
 }
 
+
+
 export default CustomTextField
+
+
+
+

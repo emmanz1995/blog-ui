@@ -1,11 +1,13 @@
 import React, {Component} from 'react'
-import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import Navbar from '../../layout/navbar/Navbar';
 import { MainContainer, BannerContainer, SubNav } from './DashboardStyled'
 import axios from 'axios'
 import AddNewPost from "../blog/AddNewPost";
 import DisplayPost from "../blog/DisplayPost";
+import CustomTextField from "../../layout/CustomTextField";
+import Button from "react-bootstrap/Button";
 
 class Dashboard extends Component {
     constructor(props) {
@@ -38,18 +40,31 @@ class Dashboard extends Component {
                 <BannerContainer>
                     <p style={{textAlign: 'left', fontSize: '25px', margin: '5px'}}>Welcome Back<b>{' '}{this.state.user}</b></p>
                     <br />
-                    <SubNav>
-                        <ul>
-                            <Link className="link">Home</Link>
-                            <Link className="link">About</Link>
-                        </ul>
-                    </SubNav>
+                    <div style={{ display: 'flex', justifyContent: 'space-between'}}>
+                        <SubNav>
+                            <ul>
+                                <Link className="link">Home</Link>
+                                <Link className="link">About</Link>
+                            </ul>
+                        </SubNav>
+                        <AddNewPost />
+                    </div>
                 </BannerContainer>
                 <br />
-                {/*<p>{this.state.res?.name}</p>*/}
-                <div className="flex-container">
-                    {/*<AddNewPost />*/}
-                    <DisplayPost />
+                <div style={{ maxWidth: '1070px', margin: '0 auto' }}>
+                    <div className="search-form" style={{ display: 'flex'}}>
+                        <CustomTextField
+                            type="search"
+                            name="search"
+                            onChange={this.onChange}
+                            placeholder="Search for a post"
+                        />
+                        <Button style={{ height: '40px', margin: '0 5px'}}>Search</Button>
+                    </div>
+                    <br />
+                    <div className="flex-container">
+                        <DisplayPost />
+                    </div>
                 </div>
             </MainContainer>
         )

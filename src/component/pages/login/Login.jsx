@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Container } from './LoginStyle';
-import SimplePasswordValidator from 'simple-react-validator';
-import axios from 'axios';
-import { history } from '../../History';
+import React, { Component } from 'react'
+import { Container } from './LoginStyle'
+import SimplePasswordValidator from 'simple-react-validator'
+import axios from 'axios'
+import { history } from '../../History'
 import { Link } from 'react-router-dom'
 
 class Login extends Component {
@@ -16,9 +16,9 @@ class Login extends Component {
             userEmail: '',
             error: ''
         }
-        this.handleLogin = this.handleLogin.bind(this);
-        this.onChange = this.onChange.bind(this);
-        this.validator = new SimplePasswordValidator();
+        this.handleLogin = this.handleLogin.bind(this)
+        this.onChange = this.onChange.bind(this)
+        this.validator = new SimplePasswordValidator()
     }
     handleLogin = (evt) => {
         evt.preventDefault()
@@ -33,11 +33,12 @@ class Login extends Component {
                     if(undefined === response.data.token) {
                         this.setState({loading: false})
                         console.log(response.data)
-                        return;
+                        return
                     }
                     const { token, user_nicename, user_email } = response.data
                     localStorage.setItem('token', token)
                     localStorage.setItem('username', user_nicename)
+                    localStorage.setItem('userEmail', user_email)
                     this.setState({
                         token: token,
                         userNiceName: user_nicename,
@@ -47,11 +48,11 @@ class Login extends Component {
                 .then((success) => {
                     const user = (this.state.userNiceName) ? this.state.userNiceName: localStorage.getItem('username')
                     if(localStorage.getItem('username')) {
-                        history.push(`/dashboard/${user}`);
-                        this.props.alert.success('Im coming dashboard, Im coming dashboard!')
+                        history.push(`/dashboard/${user}`)
+                        this.props.alert.success('Congrats, you are obviously wanted here!')
                     }
                 })
-                .catch((error) =>{
+                .catch((error) => {
                     console.log(error)
                     this.setState({
                         error: error.response.data.message,
@@ -60,12 +61,12 @@ class Login extends Component {
                     this.props.alert.error('Your wrong mate go back, your not welcome here!')
             })
         } else {
-            this.forceUpdate();
-            this.validator.showMessages();
+            this.forceUpdate()
+            this.validator.showMessages()
         }
     }
     onChange = (evt) => {
-        this.setState({[evt.target.name]:evt.target.value});
+        this.setState({[evt.target.name]:evt.target.value})
     }
     render() {
         const { username, password } = this.state
@@ -94,4 +95,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default Login

@@ -8,11 +8,15 @@ export const MainContainer = styled.main`
   .flex-container {
     display: flex;
     //padding: 5% 20%;
+    .search-form {
+      display: flex;
+      flex-direction: row;
+    }
   }
 `
 
 export const BannerContainer = styled.div`
-  height: 165px;
+  height: 175px;
   border: 1px solid ${props => props.theme.MainColor};
   padding: 0 50px;
 `
