@@ -15,7 +15,7 @@ class Dashboard extends Component {
         this.state = {
             user: localStorage.getItem('username'),
             email: localStorage.getItem('userEmail'),
-            users: []
+            users: {}
         }
     }
     componentDidMount() {
@@ -47,7 +47,9 @@ class Dashboard extends Component {
                             <SubNav>
                                 <ul>
                                     <Link className="link">Home</Link>
+                                    <Link className="link">Profile</Link>
                                     <Link className="link">About</Link>
+                                    <Link className="link">Manage Users</Link>
                                 </ul>
                             </SubNav>
                             <AddNewPost />

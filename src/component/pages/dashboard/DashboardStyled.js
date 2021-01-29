@@ -31,7 +31,7 @@ export const SubNav = styled.div`
   height: 50px;
   border: solid 1px #282c34;
   border-radius: 4px;
-  width: 40%;
+  width: 60%;
   .link {
     margin: 5px;
     text-decoration: none;
