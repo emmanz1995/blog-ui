@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import SimpleReactValidator from 'simple-react-validator'
-import Form from 'react-bootstrap/Form'
+import axios from 'axios'
 import Button from 'react-bootstrap/Button'
 import CustomTextField from '../../layout/CustomTextField'
 import Modal from 'react-bootstrap/Modal'
-import CustomTextArea from "../../layout/CustomTextArea";
+import CustomTextArea from '../../layout/CustomTextArea'
 
 class AddNewPost extends Component {
     constructor(props) {
@@ -13,8 +13,10 @@ class AddNewPost extends Component {
         this.state = {
             title: '',
             content: '',
-            status: '',
-            show: false
+            postAdded: false,
+            loading: false,
+            show: false,
+            message: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.onChange = this.onChange.bind(this)
@@ -25,7 +27,34 @@ class AddNewPost extends Component {
 
     handleSubmit = (evt) => {
         evt.preventDefault()
-        //TODO handle logic code here
+        this.setState({loading: true})
+        const token = localStorage.getItem('token')
+        const { title, content } = this.state
+        const formData = {
+            title: title,
+            content: content,
+            status: 'publish'
+        }
+        axios.post(`${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/posts`, formData, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then((res) => {
+                console.warn('res', res)
+                this.setState({
+                    loading: false,
+                    postAdded: !! res.data.id,
+                    message: !! res.data.id ? 'Post Added' : '',
+                    show: false
+                })
+            })
+            .catch((error) =>{
+                // this.props.alert.error('Sorry couldnt go through')
+                this.setState({ loading: false, message: error.response.data.message })
+                console.log('error', error.response.data)
+            })
     }
 
     handleShow(){
@@ -38,6 +67,7 @@ class AddNewPost extends Component {
         this.setState({
             show: false
         })
+        this.validator.hideMessages()
     }
 
     onChange = (evt) => {
@@ -49,34 +79,29 @@ class AddNewPost extends Component {
             <>
                 <ModalButton onClick={this.handleShow}>Add New Post</ModalButton>
                 <Modal show={this.state.show} onHide={this.handleClose}>
-                    <Modal.Header closeButton>Create a new Article Post</Modal.Header>
+                    <Modal.Header style={{backgroundColor: '#1BA1E2'}} closeButton>Create a new Article Post</Modal.Header>
                     <Modal.Body>
+                        {this.state.message ? <div className={`alert ${this.state.postAdded ? 'alert-success': 'alert-danger'}`}>{this.state.message}</div>: ''}
                         <CustomTextField
                             type="text"
                             placeholder="Enter your Post's title"
-                            value={this.state.title}
                             onChange={this.onChange}
                             name="title"
                         />
                         <CustomTextArea
                             as="textarea"
-                            rows={3}
+                            rows={7}
                             placeholder="Start typing your post"
-                            value={this.state.content}
                             onChange={this.onChange}
                             name="content"
-                        />
-                        <CustomTextField
-                            type="text"
-                            placeholder="Publish your post"
-                            value={this.state.status}
-                            onChange={this.onChange}
-                            name="status"
                         />
                     </Modal.Body>
                     <Modal.Footer>
                         <StyledButton variant="outline" onClick={this.handleSubmit}>Submit Post</StyledButton>
                         <Button variant="outline-danger" onClick={this.handleClose}>Close</Button>
+                        {this.state.loading && <div>
+                            <p>Loading...</p>
+                        </div>}
                     </Modal.Footer>
                 </Modal>
             </>

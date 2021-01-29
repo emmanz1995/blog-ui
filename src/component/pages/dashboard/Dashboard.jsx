@@ -14,6 +14,7 @@ class Dashboard extends Component {
         super(props);
         this.state = {
             user: localStorage.getItem('username'),
+            email: localStorage.getItem('userEmail'),
             users: []
         }
     }
@@ -37,17 +38,20 @@ class Dashboard extends Component {
         return (
             <MainContainer>
                 <Navbar user={this.state.user} />
+                {/*<img src={this.state.users?.avatar_urls} alt="image" />*/}
                 <BannerContainer>
-                    <p style={{textAlign: 'left', fontSize: '25px', margin: '5px'}}>Welcome Back<b>{' '}{this.state.user}</b></p>
-                    <br />
-                    <div style={{ display: 'flex', justifyContent: 'space-between'}}>
-                        <SubNav>
-                            <ul>
-                                <Link className="link">Home</Link>
-                                <Link className="link">About</Link>
-                            </ul>
-                        </SubNav>
-                        <AddNewPost />
+                    <div className="center-alignment">
+                        <p style={{textAlign: 'left', fontSize: '25px', margin: '5px'}}>Welcome Back<b>{' '}{this.state.user}</b></p>
+                        <br />
+                        <div style={{ display: 'flex', justifyContent: 'space-between'}}>
+                            <SubNav>
+                                <ul>
+                                    <Link className="link">Home</Link>
+                                    <Link className="link">About</Link>
+                                </ul>
+                            </SubNav>
+                            <AddNewPost />
+                        </div>
                     </div>
                 </BannerContainer>
                 <br />

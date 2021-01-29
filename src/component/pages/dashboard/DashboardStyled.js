@@ -19,6 +19,10 @@ export const BannerContainer = styled.div`
   height: 175px;
   border: 1px solid ${props => props.theme.MainColor};
   padding: 0 50px;
+  .center-alignment {
+    margin: 0 auto;
+    max-width: 1070px;
+  }
 `
 
 export const SubNav = styled.div`
@@ -29,7 +33,7 @@ export const SubNav = styled.div`
   border-radius: 4px;
   width: 40%;
   .link {
-    margin: 26px;
+    margin: 5px;
     text-decoration: none;
     font-size: 20px;
   }

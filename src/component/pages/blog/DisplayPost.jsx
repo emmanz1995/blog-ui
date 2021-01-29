@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Card from 'react-bootstrap/Card'
 import styled from 'styled-components'
+import { Link } from "react-router-dom";
 
 const StyledCard = styled(Card)`
-  width: 40%;
+  width: 49%;
   margin: 5px;
 `
 
@@ -21,6 +22,11 @@ class DisplayPost extends Component {
             posts: []
         }
     }
+
+    // createMarkup = (data) => ({
+    //     __html: data
+    // })
+
     componentDidMount() {
         axios.get(`${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/posts`)
             .then((res) => {
@@ -33,22 +39,29 @@ class DisplayPost extends Component {
             .catch((error) => console.log(error))
     }
     render() {
-        const { posts } = this.state
+        const { posts, isLoading } = this.state
         const postsDisplay = posts.map(post => (
-            <StyledCard key={post}>
+            <StyledCard key={post.id}>
                 <Card.Header>
                     <h2>{post.title?.rendered}</h2>
                 </Card.Header>
                 <Card.Body>
                     <p dangerouslySetInnerHTML={{ __html: post.content?.rendered }} />
+                    <Link to={`/post/${post.id}`}>Click to read more</Link>
                 </Card.Body>
             </StyledCard>
         ))
-        return(
-            <MainContainer>
-                {postsDisplay}
-            </MainContainer>
-        )
+        if(isLoading) {
+            return(
+                <MainContainer>
+                    {postsDisplay}
+                </MainContainer>
+            )
+        } else {
+            return(
+                <div>Loading...</div>
+            )
+        }
     }
 }
 
