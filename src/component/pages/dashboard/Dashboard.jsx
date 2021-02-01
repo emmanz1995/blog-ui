@@ -27,7 +27,7 @@ class Dashboard extends Component {
                 authorization: `Bearer` + token
             }
         })
-            .then((res) =>{
+            .then((res) => {
                 const users = res.data
                 this.setState({
                     res: users,

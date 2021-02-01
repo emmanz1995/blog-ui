@@ -28,7 +28,14 @@ class DisplayPost extends Component {
     // })
 
     componentDidMount() {
-        axios.get(`${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/posts`)
+        const token = localStorage.getItem('token')
+        axios({
+            method: "GET",
+            url: `${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/posts`,
+            header: {
+                Authorization: `Bearer ${token}`
+            }
+        })
             .then((res) => {
                 this.setState({
                     posts: res.data,
