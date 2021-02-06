@@ -1,14 +1,13 @@
 import React from 'react'
 import './App.css';
-import { Router, Route, Switch } from 'react-router-dom';
-import Login from './component/pages/login/Login';
-import Home from './component/pages/blog/Home';
-import Post from './component/pages/blog/Post';
-import AddNewPost from './component/pages/blog/AddNewPost';
-import Dashboard from "./component/pages/dashboard/Dashboard";
+import { Router, Route, Switch } from 'react-router-dom'
+import Login from './component/pages/login/Login'
+import Home from './component/pages/blog/Home'
+import Post from './component/pages/blog/Post'
+import Dashboard from './component/pages/dashboard/Dashboard'
 import { PrivateRoute } from './component/PrivateRoute'
 import { withAlert } from 'react-alert'
-import { history } from "./component/History";
+import { history } from './component/History'
 
 class App extends React.Component {
     render() {
@@ -27,4 +26,4 @@ class App extends React.Component {
     }
 }
 
-export default withAlert()(App);
+export default withAlert()(App)

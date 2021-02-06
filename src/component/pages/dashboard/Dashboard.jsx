@@ -1,13 +1,13 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
-import Navbar from '../../layout/navbar/Navbar';
+import Navbar from '../../layout/navbar/Navbar'
 import { MainContainer, BannerContainer, SubNav } from './DashboardStyled'
 import axios from 'axios'
-import AddNewPost from "../blog/AddNewPost";
-import DisplayPost from "../blog/DisplayPost";
-import CustomTextField from "../../layout/CustomTextField";
-import Button from "react-bootstrap/Button";
+import AddNewPost from '../blog/AddNewPost'
+import DisplayPost from '../blog/DisplayPost'
+import CustomTextField from '../../layout/CustomTextField'
+import Button from 'react-bootstrap/Button'
 
 class Dashboard extends Component {
     constructor(props) {

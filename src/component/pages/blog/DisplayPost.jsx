@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Card from 'react-bootstrap/Card'
 import styled from 'styled-components'
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
 const StyledCard = styled(Card)`
   width: 49%;
@@ -78,4 +78,5 @@ class DisplayPost extends Component {
 
 export default DisplayPost
 
+// TODO Experiment with this code later
 // <p dangerouslySetInnerHTML={{ __html: post.content?.rendered }} />

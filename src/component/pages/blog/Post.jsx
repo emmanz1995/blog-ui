@@ -46,7 +46,6 @@ class Post extends Component {
                             Single Post
                         </Breadcrumb.Item>
                     </Breadcrumb>
-
                     {SinglePost}
                 </div>
             )
