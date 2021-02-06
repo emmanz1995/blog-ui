@@ -22,7 +22,6 @@ class DisplayPost extends Component {
             posts: []
         }
     }
-
     // createMarkup = (data) => ({
     //     __html: data
     // })
@@ -45,6 +44,11 @@ class DisplayPost extends Component {
             })
             .catch((error) => console.log(error))
     }
+
+     truncate( string, n ) {
+        return string?.length > n ? string.substr(0, n - 1) + '...' : string;
+     }
+
     render() {
         const { posts, isLoading } = this.state
         const postsDisplay = posts.map(post => (
@@ -53,7 +57,7 @@ class DisplayPost extends Component {
                     <h2>{post.title?.rendered}</h2>
                 </Card.Header>
                 <Card.Body>
-                    <p dangerouslySetInnerHTML={{ __html: post.content?.rendered }} />
+                    <p>{this.truncate(post.content?.rendered, 150)}</p>
                     <Link to={`/post/${post.id}`}>Click to read more</Link>
                 </Card.Body>
             </StyledCard>
@@ -73,3 +77,5 @@ class DisplayPost extends Component {
 }
 
 export default DisplayPost
+
+// <p dangerouslySetInnerHTML={{ __html: post.content?.rendered }} />

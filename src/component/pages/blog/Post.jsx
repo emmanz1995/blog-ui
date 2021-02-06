@@ -35,13 +35,18 @@ class Post extends Component {
                 <div>
                     <Navbar user={this.state.user}/>
                     <Breadcrumb>
-                        <Breadcrumb.Item href={`/dashboard/${this.state.user}`}>
-                            Dashboard
-                        </Breadcrumb.Item>
+                        {!this.state.user ? (
+                            <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                            ) : (
+                                <Breadcrumb.Item href={`/dashboard/${this.state.user}`}>
+                                    Dashboard
+                                </Breadcrumb.Item>
+                            )}
                         <Breadcrumb.Item active>
                             Single Post
                         </Breadcrumb.Item>
                     </Breadcrumb>
+
                     {SinglePost}
                 </div>
             )

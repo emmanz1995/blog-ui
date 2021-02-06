@@ -52,7 +52,7 @@ class Dashboard extends Component {
                                     <Link className="link">Manage Users</Link>
                                 </ul>
                             </SubNav>
-                            <AddNewPost />
+                            <AddNewPost alert={this.props.alert} />
                         </div>
                     </div>
                 </BannerContainer>

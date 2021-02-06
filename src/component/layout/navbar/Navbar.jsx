@@ -9,7 +9,7 @@ class Navbar extends Component {
         this.handleLogout = this.handleLogout.bind(this)
     }
 
-    handleLogout = (evt)=> {
+    handleLogout = (evt) => {
         evt.preventDefault()
         localStorage.removeItem('username')
         localStorage.removeItem('token')
@@ -19,13 +19,17 @@ class Navbar extends Component {
     render() {
         return (
             <StyledNavbar collapseOnSelect expand="lg">
-                <NavbarBrand>Blog</NavbarBrand>
+                <NavbarBrand href="/">Blog</NavbarBrand>
                 <StyledNavbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto" />
-                    <Nav.Link className="nav-style">Home</Nav.Link>
+                    {!this.props.user ? (
+                        <Nav.Link href="/login">Login</Nav.Link>
+                        ) : (
                     <NavDropdown id="collapsible-nav-dropdown" title={this.props.user} style={{color: 'white'}}>
                         <NavDropdown.Item onClick={this.handleLogout}>Logout</NavDropdown.Item>
                     </NavDropdown>
+                    )}
+                    <Nav.Link href="/#">About Us</Nav.Link>
                 </StyledNavbar.Collapse>
             </StyledNavbar>
         );

@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import Navbar from "../../layout/navbar/Navbar";
+import DisplayPost from "./DisplayPost";
 
 class Home extends Component {
     render() {
         return (
             <div>
-                <h1>Hello World!!</h1>
+                <Navbar />
+                <h1>Home</h1>
+                <DisplayPost />
             </div>
         );
     }

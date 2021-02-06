@@ -50,6 +50,9 @@ class AddNewPost extends Component {
                     show: false
                 })
             })
+            .then((success) => {
+                this.props.alert.success('You have successfully added a new Post')
+            })
             .catch((error) =>{
                 // this.props.alert.error('Sorry couldnt go through')
                 this.setState({ loading: false, message: error.response.data.message })

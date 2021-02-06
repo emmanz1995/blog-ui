@@ -16,11 +16,10 @@ class App extends React.Component {
             <div className="App">
                 <Router history={history}>
                     <Switch>
-                        <Route exact path="/" component = {props => <Login {...props} alert={this.props.alert} />} />
-                        <PrivateRoute path="/dashboard/:userName" component={Dashboard} />
-                        <Route path="/blog" component={Home} />
+                        <Route exact path="/" component={Home} />
+                        <Route path="/login" component = {props => <Login {...props} alert={this.props.alert} />} />
+                        <PrivateRoute path="/dashboard/:userName" component={props => <Dashboard {...props} alert={this.props.alert} />} />
                         <Route path="/post/:id" component={Post} />
-                        {/*<Route path="/addpost" component={AddNewPost} />*/}
                     </Switch>
                 </Router>
             </div>
