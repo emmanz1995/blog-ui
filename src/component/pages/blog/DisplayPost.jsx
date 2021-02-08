@@ -40,12 +40,12 @@ class DisplayPost extends Component {
                     posts: res.data,
                     isLoading: true
                 })
-                console.log('Posts: ', res)
+                // console.log('Posts: ', res)
             })
             .catch((error) => console.log(error))
     }
 
-     truncate( string, n ) {
+     truncate(string, n) {
         return string?.length > n ? string.substr(0, n - 1) + '...' : string;
      }
 

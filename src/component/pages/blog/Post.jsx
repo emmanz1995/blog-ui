@@ -3,6 +3,7 @@ import axios from 'axios'
 import Card from 'react-bootstrap/Card'
 import Navbar from '../../layout/navbar/Navbar'
 import Breadcrumb from 'react-bootstrap/breadcrumb'
+import styled from 'styled-components'
 
 class Post extends Component {
     state = {
@@ -35,6 +36,7 @@ class Post extends Component {
                 <div>
                     <Navbar user={this.state.user}/>
                     <Breadcrumb>
+                        <h1>{post.title?.rendered}</h1><br/><br/>
                         {!this.state.user ? (
                             <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
                             ) : (

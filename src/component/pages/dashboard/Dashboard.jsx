@@ -46,10 +46,10 @@ class Dashboard extends Component {
                         <div style={{ display: 'flex', justifyContent: 'space-between'}}>
                             <SubNav>
                                 <ul>
-                                    <Link className="link">Home</Link>
-                                    <Link className="link">Profile</Link>
-                                    <Link className="link">About</Link>
-                                    <Link className="link">Manage Users</Link>
+                                    <Link to="#" className="link">Home</Link>
+                                    <Link to="#" className="link">Profile</Link>
+                                    <Link to="#" className="link">About</Link>
+                                    <Link to="#" className="link">Manage Users</Link>
                                 </ul>
                             </SubNav>
                             <AddNewPost alert={this.props.alert} />

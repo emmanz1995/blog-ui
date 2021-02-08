@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="63aedb20-e4d0-4505-823e-7ed91b22dcbc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/pages/blog/DisplayPost.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/blog/DisplayPost.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/pages/blog/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/blog/Home.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/pages/blog/Post.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/blog/Post.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/pages/dashboard/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/dashboard/Dashboard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/pages/login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/login/Login.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +46,7 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="ts.external.directory.path" value="G:\JetBrain\WebStorm 2020.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -90,7 +90,12 @@
       <workItem from="1612349490906" duration="4066000" />
       <workItem from="1612442666978" duration="2130000" />
       <workItem from="1612539878593" duration="1825000" />
-      <workItem from="1612615135137" duration="2424000" />
+      <workItem from="1612615135137" duration="2801000" />
+      <workItem from="1612625035480" duration="692000" />
+      <workItem from="1612799925749" duration="51000" />
+      <workItem from="1612800017112" duration="43000" />
+      <workItem from="1612804263706" duration="29000" />
+      <workItem from="1612812760317" duration="3254000" />
     </task>
     <servers />
   </component>

@@ -32,7 +32,7 @@ class Login extends Component {
                 .then((response)=>{
                     if(undefined === response.data.token) {
                         this.setState({loading: false})
-                        console.log(response.data)
+                        console.log('Response Data', response.data)
                         return
                     }
                     const { token, user_nicename, user_email } = response.data
@@ -87,7 +87,7 @@ class Login extends Component {
                         {this.validator.message('password', password, 'required|password|min:6|max:20', {className: 'text-danger'})}<br/>
                         <button className="login-btn">Login</button>
                         <br />
-                        <Link to="#" className="forg-link">Forgot Password or Username</Link>
+                        {/*<Link to="#" className="forg-link">Forgot Password or Username</Link>*/}
                     </form>
                 </Container>
             </div>
