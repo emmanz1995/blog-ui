@@ -3,7 +3,7 @@ import axios from 'axios'
 import Card from 'react-bootstrap/Card'
 import Navbar from '../../layout/navbar/Navbar'
 import Breadcrumb from 'react-bootstrap/breadcrumb'
-import styled from 'styled-components'
+import Button from "react-bootstrap/Button";
 
 class Post extends Component {
     state = {
@@ -11,6 +11,10 @@ class Post extends Component {
         isLoading: false
     }
     componentDidMount() {
+        this.getPost()
+    }
+
+    getPost = () => {
         axios.get(`${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/posts/${this.props.match.params.id}`)
             .then(res => this.setState({
                 isLoading: true,
@@ -18,6 +22,28 @@ class Post extends Component {
                 user: localStorage.getItem('username')
             }))
             .catch(error => console.log(error))
+    }
+
+    deletePost = (evt) => {
+        evt.preventDefault()
+        const token = localStorage.getItem('token')
+        axios({
+            method: "DELETE",
+            url: `${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/posts/${this.props.match.params.id}`,
+            header: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then((res) =>{
+                this.setState({
+                    isLoading: true,
+                    post: res.data
+                })
+            })
+            .catch((error) =>{
+                console.log(error)
+                alert(error)
+            })
     }
 
     render() {
@@ -49,6 +75,7 @@ class Post extends Component {
                         </Breadcrumb.Item>
                     </Breadcrumb>
                     {SinglePost}
+                    <Button onClick={this.deletePost.bind(this)}>Delete</Button>
                 </div>
             )
         } else {
