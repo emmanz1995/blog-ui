@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button'
 import CustomTextField from '../../layout/CustomTextField'
 import Modal from 'react-bootstrap/Modal'
 import CustomTextArea from '../../layout/CustomTextArea'
+import {Spinner} from "react-bootstrap";
 
 class AddNewPost extends Component {
     constructor(props) {
@@ -103,7 +104,8 @@ class AddNewPost extends Component {
                         <StyledButton variant="outline" onClick={this.handleSubmit}>Submit Post</StyledButton>
                         <Button variant="outline-danger" onClick={this.handleClose}>Close</Button>
                         {this.state.loading && <div>
-                            <p>Loading...</p>
+                            {/*<p>Loading...</p>*/}
+                            <Spinner animation="border" />
                         </div>}
                     </Modal.Footer>
                 </Modal>

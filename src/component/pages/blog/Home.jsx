@@ -8,7 +8,9 @@ class Home extends Component {
             <div>
                 <Navbar />
                 <h1>Home</h1>
-                <DisplayPost />
+                <div style={{maxWidth: '1200px', margin: '0 auto'}}>
+                    <DisplayPost />
+                </div>
             </div>
         );
     }

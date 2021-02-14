@@ -3,6 +3,8 @@ import axios from 'axios'
 import Card from 'react-bootstrap/Card'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import Button from "react-bootstrap/Button";
+import {Spinner} from "react-bootstrap";
 
 const StyledCard = styled(Card)`
   width: 49%;
@@ -54,7 +56,14 @@ class DisplayPost extends Component {
         const postsDisplay = posts.map(post => (
             <StyledCard key={post.id}>
                 <Card.Header>
-                    <h2>{post.title?.rendered}</h2>
+                    <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                        <h2>{post.title?.rendered}</h2>
+                        {this.props.user ? (
+                            <Link to={`/update-post/${post.id}`}>Update</Link>
+                        ) : (
+                            <></>
+                        )}
+                    </div>
                 </Card.Header>
                 <Card.Body>
                     <p>{this.truncate(post.content?.rendered, 150)}</p>
@@ -70,7 +79,9 @@ class DisplayPost extends Component {
             )
         } else {
             return(
-                <div>Loading...</div>
+                <div>
+                    <Spinner animation="border"/>
+                </div>
             )
         }
     }

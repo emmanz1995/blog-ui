@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63aedb20-e4d0-4505-823e-7ed91b22dcbc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/component/pages/dashboard/UpdatePost.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/pages/blog/AddNewPost.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/blog/AddNewPost.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/pages/blog/DisplayPost.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/blog/DisplayPost.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/pages/blog/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/blog/Home.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/pages/blog/Post.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/blog/Post.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/pages/dashboard/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/dashboard/Dashboard.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +102,9 @@
       <workItem from="1612897458969" duration="552000" />
       <workItem from="1613143724966" duration="601000" />
       <workItem from="1613210924424" duration="1376000" />
-      <workItem from="1613257317742" duration="1697000" />
+      <workItem from="1613257317742" duration="2052000" />
+      <workItem from="1613318528442" duration="5198000" />
+      <workItem from="1613330635218" duration="2350000" />
     </task>
     <servers />
   </component>

@@ -4,12 +4,14 @@ import Card from 'react-bootstrap/Card'
 import Navbar from '../../layout/navbar/Navbar'
 import Breadcrumb from 'react-bootstrap/breadcrumb'
 import Button from "react-bootstrap/Button";
+import {Spinner} from "react-bootstrap";
 
 class Post extends Component {
     state = {
         post: {},
         isLoading: false
     }
+
     componentDidMount() {
         this.getPost()
     }
@@ -27,20 +29,23 @@ class Post extends Component {
     deletePost = (evt) => {
         evt.preventDefault()
         const token = localStorage.getItem('token')
+        const id = this.props.match.params.id
         axios({
             method: "DELETE",
-            url: `${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/posts/${this.props.match.params.id}`,
+            url: `${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/posts/` + id,
             header: {
+                'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             }
         })
-            .then((res) =>{
-                this.setState({
-                    isLoading: true,
-                    post: res.data
-                })
+            .then((res) => {
+                // this.setState({
+                //     isLoading: true,
+                //     post: res.data
+                // })
+                console.log(res.data)
             })
-            .catch((error) =>{
+            .catch((error) => {
                 console.log(error)
                 alert(error)
             })
@@ -75,13 +80,17 @@ class Post extends Component {
                         </Breadcrumb.Item>
                     </Breadcrumb>
                     {SinglePost}
-                    <Button onClick={this.deletePost.bind(this)}>Delete</Button>
+                    {this.state.user ? (
+                        <Button onClick={this.deletePost.bind(this)}>Delete</Button>
+                    ) : (
+                        <></>
+                    )}
                 </div>
             )
         } else {
             return (
                 <div>
-                    <p>Loading...</p>
+                    <Spinner animation="border" />
                 </div>
             )
         }
