@@ -16,7 +16,7 @@ const MainContainer = styled.div`
   flex-wrap: wrap;
 `
 
-class DisplayPost extends Component {
+class MainDisplayPost extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -47,34 +47,25 @@ class DisplayPost extends Component {
             .catch((error) => console.log(error))
     }
 
-     truncate(string, n) {
+    truncate(string, n) {
         return string?.length > n ? string.substr(0, n - 1) + '...' : string;
-     }
+    }
 
     render() {
         const { posts, isLoading } = this.state
-        const postsDisplay = posts.map(post => (
-            <StyledCard key={post.id}>
-                <Card.Header>
-                    <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                        <h2>{post.title?.rendered}</h2>
-                        {this.props.user ? (
-                            <Link to={`/update-post/${post.id}`}>Update</Link>
-                        ) : (
-                            <></>
-                        )}
-                    </div>
-                </Card.Header>
-                <Card.Body>
-                    <p>{this.truncate(post.content?.rendered, 150)}</p>
-                    <Link to={`/post/${post.id}`}>Click to read more</Link>
-                </Card.Body>
-            </StyledCard>
-        ))
         if(isLoading) {
             return(
                 <MainContainer>
-                    {postsDisplay}
+                    {posts.map(post =>(
+                        <StyledCard key={post.id}>
+                            <Card.Header>
+                                <h1>{post.title?.rendered}</h1>
+                            </Card.Header>
+                            <Card.Body>
+                                <p>{this.truncate(post.content?.rendered, 150)}</p>
+                            </Card.Body>
+                        </StyledCard>
+                    ))}
                 </MainContainer>
             )
         } else {
@@ -87,7 +78,4 @@ class DisplayPost extends Component {
     }
 }
 
-export default DisplayPost
-
-// TODO Experiment with this code later
-// <p dangerouslySetInnerHTML={{ __html: post.content?.rendered }} />
+export default MainDisplayPost

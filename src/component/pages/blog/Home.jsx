@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Navbar from '../../layout/navbar/Navbar'
-import DisplayPost from './DisplayPost'
+// import DashboardDisplayPost from './DashboardDisplayPost'
+import MainDisplayPost from './MainPostDisplay'
 
 class Home extends Component {
     render() {
@@ -9,7 +10,7 @@ class Home extends Component {
                 <Navbar />
                 <h1>Home</h1>
                 <div style={{maxWidth: '1200px', margin: '0 auto'}}>
-                    <DisplayPost />
+                    <MainDisplayPost />
                 </div>
             </div>
         );

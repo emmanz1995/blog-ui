@@ -14,7 +14,8 @@ class Login extends Component {
             loading: false,
             userNiceName: '',
             userEmail: '',
-            error: ''
+            error: '',
+            id: ''
         }
         this.handleLogin = this.handleLogin.bind(this)
         this.onChange = this.onChange.bind(this)
@@ -42,7 +43,7 @@ class Login extends Component {
                     this.setState({
                         token: token,
                         userNiceName: user_nicename,
-                        userEmail: user_email
+                        userEmail: user_email,
                     })
                 })
                 .then((success) => {

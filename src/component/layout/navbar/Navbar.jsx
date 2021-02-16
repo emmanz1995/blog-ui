@@ -27,6 +27,7 @@ class Navbar extends Component {
                         ) : (
                     <NavDropdown id="collapsible-nav-dropdown" title={this.props.user} style={{color: 'white'}}>
                         <NavDropdown.Item onClick={this.handleLogout}>Logout</NavDropdown.Item>
+                        <NavDropdown.Item>Profile</NavDropdown.Item>
                     </NavDropdown>
                     )}
                     <Nav.Link href="/#">About Us</Nav.Link>

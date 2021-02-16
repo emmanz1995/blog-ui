@@ -8,7 +8,7 @@ import Dashboard from './component/pages/dashboard/Dashboard'
 import { PrivateRoute } from './component/PrivateRoute'
 import { withAlert } from 'react-alert'
 import { history } from './component/History'
-import UpdatePost from "./component/pages/dashboard/UpdatePost";
+import UpdatePost from "./component/pages/blog/UpdatePost";
 
 class App extends React.Component {
     render() {

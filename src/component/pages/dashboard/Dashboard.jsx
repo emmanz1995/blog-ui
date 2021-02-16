@@ -5,7 +5,7 @@ import Navbar from '../../layout/navbar/Navbar'
 import { MainContainer, BannerContainer, SubNav } from './DashboardStyled'
 import axios from 'axios'
 import AddNewPost from '../blog/AddNewPost'
-import DisplayPost from '../blog/DisplayPost'
+import DashboardDisplayPost from '../blog/DashboardDisplayPost'
 import CustomTextField from '../../layout/CustomTextField'
 import Button from 'react-bootstrap/Button'
 
@@ -28,10 +28,13 @@ class Dashboard extends Component {
             }
         })
             .then((res) => {
-                const users = res.data
+                const { users, id } = res.data
+                localStorage.setItem('id', id)
                 this.setState({
                     res: users,
+                    id: id
                 })
+                console.log(users)
             }).catch(error => console.log(error))
     }
     render() {
@@ -41,7 +44,7 @@ class Dashboard extends Component {
                 {/*<img src={this.state.users?.avatar_urls} alt="image" />*/}
                 <BannerContainer>
                     <div className="center-alignment">
-                        <p style={{textAlign: 'left', fontSize: '25px', margin: '5px'}}>Welcome Back<b>{' '}{this.state.user}</b></p>
+                        <p style={{textAlign: 'left', fontSize: '25px', margin: '5px'}}>Welcome Back<b>{' '}{this.state.user} {' '} {this.state.users?.id}</b></p>
                         <br />
                         <div style={{ display: 'flex', justifyContent: 'space-between'}}>
                             <SubNav>
@@ -69,7 +72,7 @@ class Dashboard extends Component {
                     </div>
                     <br />
                     <div className="flex-container">
-                        <DisplayPost user={this.state.user}/>
+                        <DashboardDisplayPost user={this.state.user}/>
                     </div>
                 </div>
             </MainContainer>
