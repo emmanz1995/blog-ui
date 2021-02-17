@@ -17,7 +17,7 @@ export const MainContainer = styled.main`
 
 export const BannerContainer = styled.div`
   height: 175px;
-  border: 1px solid ${props => props.theme.MainColor};
+  border: 1px solid lightgrey;
   padding: 0 50px;
   background-color: lightgrey;
   .center-alignment {

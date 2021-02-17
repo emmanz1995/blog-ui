@@ -9,6 +9,9 @@ import DashboardDisplayPost from '../blog/DashboardDisplayPost'
 import CustomTextField from '../../layout/CustomTextField'
 import Button from 'react-bootstrap/Button'
 
+const id = localStorage.getItem('id')
+const token = localStorage.getItem('token')
+
 class Dashboard extends Component {
     constructor(props) {
         super(props);
@@ -19,22 +22,21 @@ class Dashboard extends Component {
         }
     }
     componentDidMount() {
-        const token = localStorage.getItem('token')
         axios({
             method: "GET",
-            url: `${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/users/me`,
+            url: `${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/users/${id}?context=edit`,
             headers: {
                 authorization: `Bearer` + token
             }
         })
             .then((res) => {
-                const { users, id } = res.data
+                // const { id } = res.data
                 localStorage.setItem('id', id)
                 this.setState({
-                    res: users,
-                    id: id
+                    users: res.data,
+                    id: res.data
                 })
-                // console.log(res.data)
+                console.log(res.data)
             }).catch(error => console.log(error))
     }
     render() {
@@ -44,13 +46,13 @@ class Dashboard extends Component {
                 {/*<img src={this.state.users?.avatar_urls} alt="image" />*/}
                 <BannerContainer>
                     <div className="center-alignment">
-                        <p style={{textAlign: 'left', fontSize: '25px', margin: '5px'}}>Welcome Back<b>{' '}{this.state.user} {' '} {this.state.users?.id}</b></p>
+                        <p style={{textAlign: 'left', fontSize: '25px', margin: '5px'}}>Welcome Back<b>{' '}{this.state.user} {' '} {this.state.users?.first_name}</b></p>
                         <br />
                         <div style={{ display: 'flex', justifyContent: 'space-between'}}>
                             <SubNav>
                                 <ul>
                                     <Link to="#" className="link">Home</Link>
-                                    <Link to="#" className="link">Profile</Link>
+                                    <Link to={`/profile/${this.state.user}`} className="link">Profile</Link>
                                     <Link to="#" className="link">About</Link>
                                     <Link to="#" className="link">Manage Users</Link>
                                 </ul>

@@ -1,11 +1,11 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import axios from 'axios'
 import Card from 'react-bootstrap/Card'
 import styled from 'styled-components'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
-// import Moment from 'react-moment'
 import Button from 'react-bootstrap/Button'
+import * as moment from 'moment'
 
 const StyledCard = styled(Card)`
   width: 49%;
@@ -92,8 +92,8 @@ class DashboardDisplayPost extends Component {
                     </div>
                 </Card.Header>
                 <Card.Body>
-                    <p>{this.truncate(post.content?.rendered, 150)}</p>
-                    <p><em>Date written:{' '}</em>{post.date}</p>
+                    <p>{this.truncate(post.content?.rendered, 100)}</p>
+                    <p><em>Published:{' '}</em>{moment(post.date).format('DD/MM/YY, h:mm a')}</p>
                     <Link to={`/post/${post.id}`}>Click to read more</Link>
                 </Card.Body>
             </StyledCard>

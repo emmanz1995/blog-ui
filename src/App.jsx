@@ -9,6 +9,7 @@ import { PrivateRoute } from './component/PrivateRoute'
 import { withAlert } from 'react-alert'
 import { history } from './component/History'
 import UpdatePost from "./component/pages/blog/UpdatePost";
+import Profile from "./component/pages/profile/Profile";
 
 class App extends React.Component {
     render() {
@@ -19,6 +20,7 @@ class App extends React.Component {
                         <Route exact path="/" component={Home} />
                         <Route path="/login" component = {props => <Login {...props} alert={this.props.alert} />} />
                         <PrivateRoute path="/dashboard/:userName" component={props => <Dashboard {...props} alert={this.props.alert} />} />
+                        <PrivateRoute path="/profile/:userName" component={Profile} />
                         <Route path="/post/:id" component={props => <Post {...props} alert={this.props.alert} /> } />
                         <Route path="/update-post/:id" component={UpdatePost} />
                     </Switch>

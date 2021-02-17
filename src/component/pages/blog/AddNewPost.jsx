@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button'
 import CustomTextField from '../../layout/CustomTextField'
 import Modal from 'react-bootstrap/Modal'
 import CustomTextArea from '../../layout/CustomTextArea'
-import {Spinner} from "react-bootstrap";
+import { Spinner } from 'react-bootstrap'
 
 class AddNewPost extends Component {
     constructor(props) {
@@ -54,7 +54,7 @@ class AddNewPost extends Component {
             .then((success) => {
                 this.props.alert.success('You have successfully added a new Post')
             })
-            .catch((error) =>{
+            .catch((error) => {
                 // this.props.alert.error('Sorry couldnt go through')
                 this.setState({ loading: false, message: error.response.data.message })
                 console.log('error', error.response.data)
@@ -103,10 +103,11 @@ class AddNewPost extends Component {
                     <Modal.Footer>
                         <StyledButton variant="outline" onClick={this.handleSubmit}>Submit Post</StyledButton>
                         <Button variant="outline-danger" onClick={this.handleClose}>Close</Button>
-                        {this.state.loading && <div>
-                            {/*<p>Loading...</p>*/}
-                            <Spinner animation="border" />
-                        </div>}
+                        {this.state.loading &&
+                            <div>
+                                <Spinner animation="border" />
+                            </div>
+                        }
                     </Modal.Footer>
                 </Modal>
             </>
