@@ -40,6 +40,7 @@ class Login extends Component {
                     localStorage.setItem('token', token)
                     localStorage.setItem('username', user_nicename)
                     localStorage.setItem('userEmail', user_email)
+                    localStorage.setItem('user', JSON.stringify(response.data))
                     this.setState({
                         token: token,
                         userNiceName: user_nicename,
@@ -88,7 +89,7 @@ class Login extends Component {
                         {this.validator.message('password', password, 'required|password|min:6|max:20', {className: 'text-danger'})}<br/>
                         <button className="login-btn">Login</button>
                         <br />
-                        {/*<Link to="#" className="forg-link">Forgot Password or Username</Link>*/}
+                        <Link to="#" className="forg-link">Need a new account? Register Now!</Link>
                     </form>
                 </Container>
             </div>

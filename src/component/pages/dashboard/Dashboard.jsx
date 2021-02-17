@@ -34,7 +34,7 @@ class Dashboard extends Component {
                     res: users,
                     id: id
                 })
-                console.log(users)
+                // console.log(res.data)
             }).catch(error => console.log(error))
     }
     render() {
