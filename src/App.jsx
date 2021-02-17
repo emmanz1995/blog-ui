@@ -19,7 +19,7 @@ class App extends React.Component {
                         <Route exact path="/" component={Home} />
                         <Route path="/login" component = {props => <Login {...props} alert={this.props.alert} />} />
                         <PrivateRoute path="/dashboard/:userName" component={props => <Dashboard {...props} alert={this.props.alert} />} />
-                        <Route path="/post/:id" component={Post} />
+                        <Route path="/post/:id" component={props => <Post {...props} alert={this.props.alert} /> } />
                         <Route path="/update-post/:id" component={UpdatePost} />
                     </Switch>
                 </Router>

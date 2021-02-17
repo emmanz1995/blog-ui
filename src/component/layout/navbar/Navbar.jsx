@@ -13,13 +13,15 @@ class Navbar extends Component {
         evt.preventDefault()
         localStorage.removeItem('username')
         localStorage.removeItem('token')
+        localStorage.removeItem('userEmail')
+        localStorage.removeItem('user')
         history.push('/')
     }
 
     render() {
         return (
             <StyledNavbar collapseOnSelect expand="lg">
-                <NavbarBrand href="/">Blog</NavbarBrand>
+                <NavbarBrand href="/">Divine Blog</NavbarBrand>
                 <StyledNavbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto" />
                     {!this.props.user ? (

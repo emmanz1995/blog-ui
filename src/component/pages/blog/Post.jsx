@@ -26,31 +26,6 @@ class Post extends Component {
             .catch(error => console.log(error))
     }
 
-    deletePost = (evt) => {
-        evt.preventDefault()
-        const token = localStorage.getItem('token')
-        const id = this.props.match.params.id
-        axios({
-            method: "DELETE",
-            url: `${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/posts/` + id,
-            header: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
-        })
-            .then((res) => {
-                // this.setState({
-                //     isLoading: true,
-                //     post: res.data
-                // })
-                console.log(res.data)
-            })
-            .catch((error) => {
-                console.log(error)
-                alert(error)
-            })
-    }
-
     render() {
         const { post, isLoading } = this.state
         const SinglePost =
@@ -80,11 +55,6 @@ class Post extends Component {
                         </Breadcrumb.Item>
                     </Breadcrumb>
                     {SinglePost}
-                    {this.state.user ? (
-                        <Button onClick={this.deletePost.bind(this)}>Delete</Button>
-                    ) : (
-                        <></>
-                    )}
                 </div>
             )
         } else {

@@ -3,7 +3,10 @@ import axios from 'axios'
 import Navbar from '../../layout/navbar/Navbar'
 import CustomTextField from '../../layout/CustomTextField'
 import CustomTextArea from '../../layout/CustomTextArea'
-import Button from "react-bootstrap/Button";
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
+import Breadcrumb from 'react-bootstrap/Breadcrumb'
+
 
 const API_URL = process.env.REACT_APP_MAIN_URL
 
@@ -43,6 +46,7 @@ class UpdatePost extends Component {
     }
 
     updatePost = (evt) => {
+        evt.preventDefault()
         const formdata = {
             title: this.state.title,
             content: this.state.content,
@@ -65,19 +69,30 @@ class UpdatePost extends Component {
             })
     }
     render() {
+        const { user, post } = this.state
         return(
             <div>
-                <Navbar user={this.state.user} />
-                <CustomTextField
-                    value={this.state.post?.title?.rendered}
-                />
-                <CustomTextArea
-                    as="textarea"
-                    value={this.state.post?.content?.rendered}
-                    rows="7"
-                    onChange={this.onChange}
-                />
-                <Button onClick={this.updatePost}>Update</Button>
+                <Navbar user={user} />
+                <Breadcrumb>
+                    <Breadcrumb.Item href={`/dashboard/${user}`}>Dashboard</Breadcrumb.Item>
+                    <Breadcrumb.Item active>Update Post</Breadcrumb.Item>
+                </Breadcrumb>
+                <Form onClick={this.updatePost}>
+                    <CustomTextField
+                        type="text"
+                        name="title"
+                        value={post?.title?.rendered}
+                        onChange={this.onChange}
+
+                    />
+                    <CustomTextArea
+                        as="textarea"
+                        value={post?.content?.rendered}
+                        rows="7"
+                        onChange={this.onChange}
+                    />
+                    <Button>Update</Button>
+                </Form>
             </div>
         )
     }

@@ -72,7 +72,7 @@ class Dashboard extends Component {
                     </div>
                     <br />
                     <div className="flex-container">
-                        <DashboardDisplayPost user={this.state.user}/>
+                        <DashboardDisplayPost user={this.state.user} alert={this.props.alert}/>
                     </div>
                 </div>
             </MainContainer>

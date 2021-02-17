@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import axios from 'axios'
 import Card from 'react-bootstrap/Card'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import Button from "react-bootstrap/Button";
-import {Spinner} from "react-bootstrap";
+import {Link} from 'react-router-dom'
+import Spinner from 'react-bootstrap/Spinner'
+// import Moment from 'react-moment'
+import Button from 'react-bootstrap/Button'
 
 const StyledCard = styled(Card)`
   width: 49%;
@@ -16,36 +17,57 @@ const MainContainer = styled.div`
   flex-wrap: wrap;
 `
 
+const API_URL = process.env.REACT_APP_MAIN_URL
+const token = localStorage.getItem('token')
+const userId = localStorage.getItem('id')
+
 class DashboardDisplayPost extends Component {
     constructor(props) {
         super(props)
+        this.deletePost = this.deletePost.bind(this)
         this.state = {
             isLoading: false,
             posts: []
         }
     }
-    // createMarkup = (data) => ({
-    //     __html: data
-    // })
 
     componentDidMount() {
-        const token = localStorage.getItem('token')
-        const userId = localStorage.getItem('id')
+        this.getPosts()
+    }
+
+    getPosts() {
         axios({
             method: "GET",
-            url: `${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/posts?author=${userId}`,
-            header: {
-                Authorization: `Bearer ${token}`
+            url: `${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/posts`,
+            params: { author: userId },
+            header: { Authorization: `Bearer ${token}` }
+        })
+        .then((res) => {
+            this.setState({
+                posts: res.data,
+                isLoading: true
+            })
+        })
+        .catch((error) => console.log(error))
+    }
+
+    deletePost = (id) => {
+        axios({
+            method: "delete",
+            url: `${API_URL}/wp-json/wp/v2/posts/${id}`,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             }
         })
-            .then((res) => {
-                this.setState({
-                    posts: res.data,
-                    isLoading: true
-                })
-                // console.log('Posts: ', res)
-            })
-            .catch((error) => console.log(error))
+        .then((res) => {
+            if(res.status === 200) {
+                console.log('Post was deleted successfully')
+                alert('Post was deleted successfully')
+            } else if(res.status === 401) {
+                console.log('Post was not deleted')
+            }
+        })
     }
 
      truncate(string, n) {
@@ -60,7 +82,10 @@ class DashboardDisplayPost extends Component {
                     <div style={{display: 'flex', justifyContent: 'space-between'}}>
                         <h2>{post.title?.rendered}</h2>
                         {this.props.user ? (
-                            <Link to={`/update-post/${post.id}`}>Update</Link>
+                            <>
+                                {/*<Link to={`/update-post/${post.id}`}>Update</Link>*/}
+                                <Button onClick={()=>this.deletePost(post.id)}><i className="fas fa-trash" /></Button>
+                            </>
                         ) : (
                             <></>
                         )}
@@ -93,3 +118,8 @@ export default DashboardDisplayPost
 
 // TODO Experiment with this code later
 // <p dangerouslySetInnerHTML={{ __html: post.content?.rendered }} />
+
+// TODO Finish working on this block of code
+// createMarkup = (data) => ({
+//     __html: data
+// })

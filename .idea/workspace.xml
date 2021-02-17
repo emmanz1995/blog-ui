@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63aedb20-e4d0-4505-823e-7ed91b22dcbc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/component/pages/login/Register.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/layout/navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/layout/navbar/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/pages/blog/DashboardDisplayPost.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/blog/DashboardDisplayPost.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/pages/blog/Post.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/blog/Post.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/pages/blog/UpdatePost.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/blog/UpdatePost.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/pages/dashboard/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/dashboard/Dashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/pages/login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/login/Login.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +112,8 @@
       <workItem from="1613419160124" duration="3711000" />
       <workItem from="1613458820116" duration="3904000" />
       <workItem from="1613482282180" duration="2640000" />
-      <workItem from="1613505848453" duration="5871000" />
+      <workItem from="1613505848453" duration="6005000" />
+      <workItem from="1613568603105" duration="11177000" />
     </task>
     <servers />
   </component>
