@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import axios from "axios";
-import Navbar from "../../layout/navbar/Navbar";
+import axios from 'axios'
+import Navbar from '../../layout/navbar/Navbar'
+import { MainWrapper } from './ProfileStyle'
 
 const API_URL = process.env.REACT_APP_MAIN_URL
 const id = localStorage.getItem('id')
@@ -11,7 +12,8 @@ class Profile extends Component {
         super(props)
         this.state = {
             user: {},
-            users: localStorage.getItem('username')
+            users: localStorage.getItem('username'),
+            isLoading: false
         }
     }
     componentDidMount() {
@@ -25,7 +27,8 @@ class Profile extends Component {
             .then((response) => {
                 if(response.status === 200) {
                     this.setState({
-                        user: response.data
+                        user: response.data,
+                        isLoading: true
                     })
                     console.log('User was retrieved!')
                 } else if(response.status === 401) {
@@ -35,25 +38,18 @@ class Profile extends Component {
             })
     }
     render() {
-        const User = <table>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Role</th>
-            </tr>
-            <tr>
-                <th>{this.state.user?.first_name}</th>
-                <th>{this.state.user?.last_name}</th>
-                <th>{this.state.user?.email}</th>
-                <th>{this.state.user?.roles}</th>
-            </tr>
-        </table>
+        const User =
+        <div className="profile__container">
+            <h1>First Name</h1> {this.state.user?.first_name}
+            <h1>Last Name</h1>{this.state.user?.last_name}
+            <h1>Email</h1>{this.state.user?.email}
+            <h1>Role</h1>{this.state.user?.roles}
+        </div>
         return(
-            <div>
+            <MainWrapper>
                 <Navbar user={this.state.users} />
                 {User}
-            </div>
+            </MainWrapper>
         )
     }
 }
