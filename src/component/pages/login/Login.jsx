@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Container } from './LoginStyle'
 import SimplePasswordValidator from 'simple-react-validator'
-import axios from 'axios'
 import { history } from '../../History'
 import { Link } from 'react-router-dom'
+import AuthService from '../../../services/AuthService'
 
 class Login extends Component {
     constructor(props) {
@@ -12,10 +12,8 @@ class Login extends Component {
             username: '',
             password: '',
             loading: false,
-            userNiceName: '',
-            userEmail: '',
             error: '',
-            id: ''
+            userInfo: localStorage.getItem('username')
         }
         this.handleLogin = this.handleLogin.bind(this)
         this.onChange = this.onChange.bind(this)
@@ -24,42 +22,18 @@ class Login extends Component {
     handleLogin = (evt) => {
         evt.preventDefault()
         const { username, password } = this.state
-        const loginForm = {
-            username: username,
-            password: password
-        }
         if(this.validator.allValid()) {
-            axios.post(`${process.env.REACT_APP_MAIN_URL}/wp-json/jwt-auth/v1/token`, loginForm)
-                .then((response)=>{
-                    if(undefined === response.data.token) {
-                        this.setState({loading: false})
-                        console.log('Response Data', response.data)
-                        return
-                    }
-                    const { token, user_nicename, user_email } = response.data
-                    localStorage.setItem('token', token)
-                    localStorage.setItem('username', user_nicename)
-                    localStorage.setItem('userEmail', user_email)
-                    this.setState({
-                        token: token,
-                        userNiceName: user_nicename,
-                        userEmail: user_email,
-                    })
-                })
-                .then((success) => {
-                    const user = (this.state.userNiceName) ? this.state.userNiceName: localStorage.getItem('username')
-                    if(localStorage.getItem('username')) {
-                        history.push(`/dashboard/${user}`)
-                        this.props.alert.success('Congrats, you are obviously wanted here!')
-                    }
-                })
-                .catch((error) => {
-                    console.log(error)
-                    this.setState({
-                        error: error.response.data.message,
-                        loading: false
-                    })
-                    this.props.alert.error('Your wrong mate go back, your not welcome here!')
+            AuthService.onLogin(username, password)
+            .then(() => {
+                const user = (this.state.userInfo) ? this.state.userInfo: localStorage.getItem('username')
+                if(localStorage.getItem('username')) {
+                    history.push(`/dashboard/${user}`)
+                }
+                this.props.alert.success(`Congrats ${user}, you are obviously wanted here!`)
+            })
+            .catch((error) => {
+                console.log(error)
+                this.props.alert.error(error)
             })
         } else {
             this.forceUpdate()

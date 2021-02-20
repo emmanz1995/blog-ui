@@ -9,7 +9,6 @@ import DashboardDisplayPost from '../blog/DashboardDisplayPost'
 import CustomTextField from '../../layout/CustomTextField'
 import Button from 'react-bootstrap/Button'
 
-// const userId = localStorage.getItem('id')
 const token = localStorage.getItem('token')
 
 class Dashboard extends Component {
@@ -18,7 +17,7 @@ class Dashboard extends Component {
         this.state = {
             user: localStorage.getItem('username'),
             email: localStorage.getItem('userEmail'),
-            users: {},
+            users: {}
         }
     }
     componentDidMount() {
