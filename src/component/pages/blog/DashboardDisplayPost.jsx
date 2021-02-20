@@ -93,7 +93,7 @@ class DashboardDisplayPost extends Component {
                 </Card.Header>
                 <Card.Body>
                     <p>{this.truncate(post.content?.rendered, 100)}</p>
-                    <p><em>Published:{' '}</em>{moment(post.date).format('DD/MM/YY, h:mm a')}</p>
+                    <p><em>Date published:{' '}</em>{moment(post.date).format('DD/MM/YY, h:mm a')}</p>
                     <Link to={`/post/${post.id}`}>Click to read more</Link>
                 </Card.Body>
             </StyledCard>

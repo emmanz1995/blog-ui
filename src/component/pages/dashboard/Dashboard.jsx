@@ -52,8 +52,7 @@ class Dashboard extends Component {
                                 <ul>
                                     <Link to="#" className="link">Home</Link>
                                     <Link to={`/profile/${this.state.user}`} className="link">Profile</Link>
-                                    <Link to="#" className="link">About</Link>
-                                    <Link to="#" className="link">Manage Users</Link>
+                                    <Link to="" className="link">Blog</Link>
                                 </ul>
                             </SubNav>
                             <AddNewPost alert={this.props.alert} />
