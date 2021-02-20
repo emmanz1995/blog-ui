@@ -1,20 +1,16 @@
 import React, { Component } from 'react'
 import { StyledNavbar } from './NavStyle'
 import { NavbarBrand, Nav, NavDropdown } from 'react-bootstrap'
-import { history } from "../../History";
+import { history } from '../../History'
 
 class Navbar extends Component {
     constructor(props) {
         super(props)
         this.handleLogout = this.handleLogout.bind(this)
     }
-
     handleLogout = (evt) => {
         evt.preventDefault()
-        localStorage.removeItem('username')
-        localStorage.removeItem('token')
-        localStorage.removeItem('userEmail')
-        localStorage.removeItem('user')
+        localStorage.clear()
         history.push('/')
     }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import Form from 'react-bootstrap/Form'
+import { Link } from 'react-router-dom'
 import Navbar from '../../layout/navbar/Navbar'
 import { MainContainer, BannerContainer, SubNav } from './DashboardStyled'
 import axios from 'axios'
@@ -9,7 +9,7 @@ import DashboardDisplayPost from '../blog/DashboardDisplayPost'
 import CustomTextField from '../../layout/CustomTextField'
 import Button from 'react-bootstrap/Button'
 
-const id = localStorage.getItem('id')
+// const userId = localStorage.getItem('id')
 const token = localStorage.getItem('token')
 
 class Dashboard extends Component {
@@ -18,25 +18,25 @@ class Dashboard extends Component {
         this.state = {
             user: localStorage.getItem('username'),
             email: localStorage.getItem('userEmail'),
-            users: {}
+            users: {},
         }
     }
     componentDidMount() {
         axios({
             method: "GET",
-            url: `${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/users/${id}?context=edit`,
+            url: `${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/users/me`,
             headers: {
-                authorization: `Bearer` + token
+                authorization: `Bearer ${token}`
             }
         })
             .then((res) => {
-                // const { id } = res.data
-                localStorage.setItem('id', id)
+                localStorage.setItem('id', res.data.id)
                 this.setState({
                     users: res.data,
-                    id: res.data
+                    author: res.data,
+                    id: res.data.id
                 })
-                console.log(res.data)
+                // console.log(res.data)
             }).catch(error => console.log(error))
     }
     render() {

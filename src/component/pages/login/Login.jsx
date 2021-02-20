@@ -40,7 +40,6 @@ class Login extends Component {
                     localStorage.setItem('token', token)
                     localStorage.setItem('username', user_nicename)
                     localStorage.setItem('userEmail', user_email)
-                    localStorage.setItem('user', JSON.stringify(response.data))
                     this.setState({
                         token: token,
                         userNiceName: user_nicename,

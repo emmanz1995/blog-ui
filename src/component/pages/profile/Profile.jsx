@@ -13,13 +13,13 @@ class Profile extends Component {
         this.state = {
             user: {},
             users: localStorage.getItem('username'),
-            isLoading: false
+            isLoading: false,
         }
     }
     componentDidMount() {
         axios({
             method: "GET",
-            url:`${API_URL}/wp-json/wp/v2/users/${id}?context=edit`,
+            url:`${API_URL}/wp-json/wp/v2/users/${id}/?context=edit`,
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -28,10 +28,18 @@ class Profile extends Component {
                 if(response.status === 200) {
                     this.setState({
                         user: response.data,
-                        isLoading: true
+                        isLoading: true,
+                        // roles: response.data.roles,
+                        // capabilities: response.data.capabilities
                     })
+                    const obj = {
+                        "role": response.data.roles,
+                        "capabilities": response.data.capabilities,
+                        "id": response.data.id
+                    }
+                    localStorage.setItem('Authorities', JSON.stringify(obj))
                     console.log('User was retrieved!')
-                } else if(response.status === 401) {
+                } else if(response.status === 404) {
                     console.log('User was not found!')
                 }
                 console.log('user: ', response.data)

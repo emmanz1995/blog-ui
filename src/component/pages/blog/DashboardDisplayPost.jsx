@@ -19,7 +19,6 @@ const MainContainer = styled.div`
 
 const API_URL = process.env.REACT_APP_MAIN_URL
 const token = localStorage.getItem('token')
-const userId = localStorage.getItem('id')
 
 class DashboardDisplayPost extends Component {
     constructor(props) {
@@ -32,20 +31,21 @@ class DashboardDisplayPost extends Component {
     }
 
     componentDidMount() {
-        this.getPosts()
+        this.getPosts(localStorage.getItem('id'))
     }
 
-    getPosts() {
+    getPosts(authorId) {
         axios({
             method: "GET",
             url: `${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/posts`,
-            params: { author: userId },
+            params: { author: authorId },
             header: { Authorization: `Bearer ${token}` }
         })
         .then((res) => {
             this.setState({
                 posts: res.data,
-                isLoading: true
+                isLoading: true,
+                author: res.data
             })
         })
         .catch((error) => console.log(error))
