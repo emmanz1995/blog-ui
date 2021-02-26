@@ -29,14 +29,14 @@ class Post extends Component {
     render() {
         const { post, isLoading } = this.state
         const SinglePost =
-            <Card style={{width: '50%', margin: '5px'}}>
-            <Card.Header>
-                <p>{post.title?.rendered}</p>
-            </Card.Header>
-            <Card.Body>
-                <p dangerouslySetInnerHTML={{__html: post.content?.rendered}}/>
-            </Card.Body>
-        </Card>
+            <article className="main-article">
+                <section className="article-section">
+                    <div className="article-post">
+                        <h2>{post.title?.rendered}</h2>
+                        <p dangerouslySetInnerHTML={{__html: post.content?.rendered}}/>
+                    </div>
+                </section>
+            </article>
         if(isLoading) {
             return (
                 <div>

@@ -69,7 +69,7 @@ class Profile extends Component {
                                     <ul>
                                         <Link to={`/dashboard/${currentUser?.name}`} className="link">Dashboard</Link>
                                         <Link to={`/profile/${currentUser?.name}`} className="link">Profile</Link>
-                                        <Link to="" className="link">Blog</Link>
+                                        <Link to={`/home/${currentUser?.name}`} className="link">Blog</Link>
                                     </ul>
                                 </SubNav>
                                 {/*<AddNewPost alert={this.props.alert} />*/}

@@ -6,7 +6,8 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: url(${PexelsBackground});
+  background: url(${PexelsBackground}) no-repeat top center;
+  background-size: cover;
   form {
     display: flex;
     flex-direction: column;

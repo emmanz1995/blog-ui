@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const API_URL = process.env.REACT_APP_MAIN_URL
+const token = localStorage.getItem('token')
 
 class AuthService {
     onLogin(username, password) {
@@ -21,6 +22,19 @@ class AuthService {
 
     getUser() {
        return JSON.parse(localStorage.getItem('userDetails'))
+    }
+
+    onRegister(username, first_name, last_name, email, password) {
+        return axios.post(API_URL + '/wp-json/wp/v2/users/',{
+            username,
+            first_name,
+            last_name,
+            email,
+            password,
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        })
     }
 }
 

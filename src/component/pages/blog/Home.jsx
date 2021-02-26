@@ -4,10 +4,13 @@ import Navbar from '../../layout/navbar/Navbar'
 import MainDisplayPost from './MainPostDisplay'
 
 class Home extends Component {
+    state = {
+        user: localStorage.getItem('username')
+    }
     render() {
         return (
             <div>
-                <Navbar />
+                <Navbar user={this.state.user} />
                 <h1>Home</h1>
                 <div style={{maxWidth: '1200px', margin: '0 auto'}}>
                     <MainDisplayPost />

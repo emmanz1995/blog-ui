@@ -27,7 +27,7 @@ class Login extends Component {
             .then(() => {
                 const user = (this.state.userInfo) ? this.state.userInfo: localStorage.getItem('username')
                 if(localStorage.getItem('username')) {
-                    history.push(`/dashboard/${user}`)
+                    history.push(`/home/${user}`)
                 }
                 this.props.alert.success(`Congrats ${user}, you are obviously wanted here!`)
             })
@@ -62,7 +62,7 @@ class Login extends Component {
                         {this.validator.message('password', password, 'required|password|min:6|max:20', {className: 'text-danger'})}<br/>
                         <button className="login-btn">Login</button>
                         <br />
-                        <Link to="#" className="forg-link">Need a new account? Register Now!</Link>
+                        <Link to="/register" className="forg-link">Need a new account? Register Now!</Link>
                     </form>
                 </Container>
             </div>

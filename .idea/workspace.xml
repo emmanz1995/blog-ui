@@ -3,10 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="63aedb20-e4d0-4505-823e-7ed91b22dcbc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/pages/blog/DashboardDisplayPost.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/blog/DashboardDisplayPost.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/pages/dashboard/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/dashboard/Dashboard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/layout/navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/layout/navbar/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/pages/blog/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/blog/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/pages/blog/Post.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/blog/Post.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/pages/blog/styling.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/blog/styling.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/pages/login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/login/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/pages/login/LoginStyle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/login/LoginStyle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/pages/login/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/login/Register.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/pages/profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/profile/Profile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/pages/profile/ProfileStyle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/pages/profile/ProfileStyle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/AuthService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AuthService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +46,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="ECMAScript 6" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../React Frontend Developments/blog-ui" />
+    <property name="last_opened_file_path" value="$USER_HOME$/todo-app" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -118,7 +125,15 @@
       <workItem from="1613813974907" duration="7969000" />
       <workItem from="1613839711128" duration="7101000" />
       <workItem from="1613854622447" duration="940000" />
-      <workItem from="1613857412514" duration="3152000" />
+      <workItem from="1613857412514" duration="3244000" />
+      <workItem from="1613907660605" duration="1010000" />
+      <workItem from="1613913457915" duration="3249000" />
+      <workItem from="1614002170469" duration="5891000" />
+      <workItem from="1614095095183" duration="746000" />
+      <workItem from="1614129255177" duration="3269000" />
+      <workItem from="1614181119927" duration="4331000" />
+      <workItem from="1614291273602" duration="4249000" />
+      <workItem from="1614347527975" duration="2884000" />
     </task>
     <servers />
   </component>
